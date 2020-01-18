@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+// 3가지로 사용가능
 //@ComponentScan
 //@EnableAutoConfiguration
 //@Configuration
@@ -20,13 +20,12 @@ public class SpringbootSummaryApplication {
 //		SpringApplication application = new SpringApplication();
 //		application.setWebApplicationType(WebApplicationType.NONE);
 //		application.run(args);
-
 //		SpringApplication.run(SpringbootSummaryApplication.class, args);
 		
-		// 배너 커스터 마이징
+		// 스타팅 배너 커스터 마이징
 		SpringApplication app = new SpringApplication(SpringbootSummaryApplication.class);
+		
 		app.setBanner(new Banner() {
-			
 			@Override
 			public void printBanner(Environment environment, Class<?> sourceClass, PrintStream out) {
 				// TODO Auto-generated method stub
@@ -35,8 +34,9 @@ public class SpringbootSummaryApplication {
 				out.println("==============");
 			}
 		});
+		//app.setBannerMode(Banner.Mode.OFF); // 배너 끄기
 		
-		app.setBannerMode(Banner.Mode.OFF); // 배너 끄기
+		app.addListeners(new StartingListener()); // starting 리스너 직접 생성
 		app.run(args);
 	}
 }

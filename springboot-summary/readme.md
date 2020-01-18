@@ -32,4 +32,14 @@
  - ServletWebServerFactoryConfiguration : sevlet 웹서버를 자동설정하는 부분 (tomcat 생성 & 관리)
  - tomcat 외에도 undertow, jetty 등 설정으로 dependency 추가 가능
  
+>####SpringApplication
+ - banner
+ - ApplicationListener<ApplicationStartingEvent>
+    * 애플리케이션 컨텍스트가 만들어지기 전에 발생
+    * SpringApplication 통해 강제로 리스너를 생성
+ - ApplicationListener<ApplicationStartedEvent>
+    * 애플리케이션 컨텍스트가 만들어지고 난 뒤 발생
+ - ApplicationArguments 
+    * program args 를 인식함(jvm 아규먼트 무시)
+    * ApplicationRunner를 implements하면 손쉽게 구현 가능
  
