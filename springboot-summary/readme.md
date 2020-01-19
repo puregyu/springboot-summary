@@ -43,3 +43,39 @@
     * program args 를 인식함(jvm 아규먼트 무시)
     * ApplicationRunner를 implements하면 손쉽게 구현 가능
  
+>####외부설정
+ - application.properties 파일
+ - src/main/resources 안에 기본적으로 생성되어 있음.
+ - 스프링부트가 애플리케이션을 구동할 때, 자동으로 로딩하는 설정파일.
+ - key : value 형태로 정의해서 사용 가능.
+ - 설정파일간 우선순위가 존재함.
+
+|우선순위|	properties|
+|1|	유저 홈 디렉토리에 있는 spring-boot-dev-tools.properties| 
+|2|	테스트에 있는 @TestPropertySource|
+|3|	@SpringBootTest 애노테이션의 properties 애트리뷰트| 
+|4|	커맨드 라인 아규먼트| 
+|5|	SPRING_APPLICATION_JSON (환경 변수 또는 시스템 프로티) 에 들어있는 프로퍼티| 
+|6|	ServletConfig 파라미터| 
+|7|	ServletContext 파라미터| 
+|8|	java:comp/env JNDI 애트리뷰트| 
+|9|	System.getProperties() 자바 시스템 프로퍼티|
+|10	|OS 환경 변수|
+|11	|RandomValuePropertySource|
+|12	|JAR 밖에 있는 특정 프로파일용 application properties = file:./config| 
+|13	|JAR 안에 있는 특정 프로파일용 application properties = file:./| 
+|14	|JAR 밖에 있는 application properties =  classpath:/config/|
+|15	|JAR 안에 있는 application properties(기본세팅) = classpath:/| 
+|16	|@PropertySource|
+|17	|기본 프로퍼티 (SpringApplication.setDefaultProperties)|
+
+ 
+ - properties 설정을 묶어서 하나의 Bean으로 만들어 사용할 수 있음.
+ - properties 값을 class로 바인딩해서 사용하면 타입-세이프.
+ - 자바 빈 스펙을 따라서 바인딩 해주기 때문에 getter, setter 를 사용해야함.
+ - 바인딩 class는 @Component를 통해 Bean 등록
+ - 바인딩 class는 @ConfigurationProperties 를 사용하고 설정의 prefix 값을 넣어준다.
+ - 바인딩된 class를 @Autowired를 통해 D.I 하고 꺼내서 설정을 꺼내 사용하면 된다.
+
+  
+  

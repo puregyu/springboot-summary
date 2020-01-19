@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
+import com.devyu.listener.StartingListener;
+
 // 3가지로 사용가능
 //@ComponentScan
 //@EnableAutoConfiguration

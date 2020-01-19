@@ -1,4 +1,4 @@
-package com.devyu;
+package com.devyu.arguments;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.stereotype.Component;
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Args {
 	public Args(ApplicationArguments applicationArguments) {
+		
 		// true
 		//System.out.println("프로그램 아규먼트 : "+applicationArguments.containsOption("program"));
 		// false
